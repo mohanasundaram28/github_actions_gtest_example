@@ -27,7 +27,7 @@ TEST_P(DivFunTestSuite,HandleValidinput)
 int numeror =std::get<0>(GetParam());
 int denometer = std::get<1>(GetParam());
 int exp_val =std::get<2>(GetParam());
-int act_val = divfun(numertor,denometer);
+int act_val = divfun(numeror,denometer);
 ASSERT_EQ(act_val,exp_val);
 
 
