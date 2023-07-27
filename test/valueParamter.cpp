@@ -6,9 +6,9 @@ class DivFunTestSuite : public testing::TestWithParam<std::tuple<int, int, int>>
 
     protected:
 
-    divfunTestSuit(){}
+    DivFunTestSuite(){}
 
-    ~divfunTestSuit(){}
+    ~DivFunTestSuite(){}
 
 };
 
@@ -20,7 +20,7 @@ return(numer/ deno);
 
 }
 
-TEST_P(divfunTestSuit,HandleValidinput)
+TEST_P(DivFunTestSuite,HandleValidinput)
 {
 
 
@@ -42,7 +42,7 @@ ASSERT_EQ(act_val,exp_val);
 
 INSTANTIATE_TEST_SUITE_P(
         divfunTestSuitExample,
-        divfunTestSuit,
+        DivFunTestSuite,
         ::testing::Values(
                 std::make_tuple(10,5,2),
                 std::make_tuple(10,1,10),               
