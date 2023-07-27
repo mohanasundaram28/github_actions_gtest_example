@@ -58,6 +58,6 @@ TYPED_TEST(TempSensorFixture, GetTempTest)
 
 {
 
-    ASSERT_EQ(this->objUnderTest->getOutsideTemp(), 23);
+    ASSERT_EQ(this->objuntertest->getOutsideTemp(), 23);
 
 }
