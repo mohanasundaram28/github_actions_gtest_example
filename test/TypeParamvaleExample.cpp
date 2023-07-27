@@ -24,7 +24,7 @@ public:
 
  void regulaterTemp()
  {
-this->tempsensorptr->getOutsideTemp();
+this->tempsensorptr.getOutsideTemp();
 
  }
 
