@@ -6,13 +6,13 @@ public:
    virtual int getOutsideTemp() = 0;
 
 };
-class ModelATempsensor::public ITempsnr{
+class ModelATempsensor:public ITempsnr{
 public:
 int getOutsideTemp() { return 23;}
 
 
 };
-class ModelBTempsensor::public ITempsnr {
+class ModelBTempsensor:public ITempsnr {
 public:
 int getOutsideTemp() { return 23;}
 };
