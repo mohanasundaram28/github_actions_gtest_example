@@ -1,9 +1,9 @@
 #include <gtest/gtest.h>
 class C{};
 class B{
- B* ptr;
+ C* ptr;
     public:
-    A(C* addressofobject):ptr{addressofobject}
+B(C* addressofobject):ptr{addressofobject}
     {
         
     }
@@ -17,25 +17,25 @@ class A{
 
     B* ptr;
     public:
-    B(B* addressofobject):ptr{addressofobject}
+    A(B* addressofobject):ptr{addressofobject}
     {
 
     }     
 };
 
-TEST("TestfixtureTestsuit","operationTest" ){
+TEST(TestfixtureTestsuit,operationTest){
 
-    C bobj;
+    C cobj;
     B bobj(&cobj);
     A obj(&bobj);
-    ASSERT_TURE(obj.operation);    
+    ASSERT_TRUE(obj.operation);    
 
 }
-TEST("TestfixtureTestsuit","operationTest" ){
+TEST(TestfixtureTestsuit,operationTest){
 
-    C bobj;
+   C cobj;
     B bobj(&cobj);
     A obj(&bobj);
-    ASSERT_FLASE(obj.operation);    
+    ASSERT_FALSE(obj.operation);    
 
 }
