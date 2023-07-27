@@ -1,16 +1,20 @@
 #include "gtest/gtest.h"
 
-class divfunTestSuite:public testing :: testWithParam::tuple(int,int,int)
-{
-    protected:
-     divfunTestSuite(){};
-     ~divfunTestSuite(){}; 
-}
+class DivFunTestSuite : public testing::TestWithParam<std::tuple<int, int, int>>
 
+{
+
+    protected:
+
+    DivFunTestSuite(){}
+
+    ~DivFunTestSuite(){}
+
+};
 
 int divfun(int numer,int deno)
 {
-if(deno == 0 ||deno 0 <0 ){return(0);}
+if(deno == 0 ||deno < 0 ){return(0);}
 
 retuen(numer/ deno);
 
@@ -20,7 +24,7 @@ TEST_P(divfunTestSuit,HandleValidinput)
 {
 
 
-int numertor =std::get<0>(GetParam());
+int numeror =std::get<0>(GetParam());
 int deno = std::get<1>(GetParam());
 int exp_val =std::get<2>(GetParam());
 int act_val = divfun(numertor,deno);
@@ -43,4 +47,4 @@ INSTANTIATE_TEST_SUITE_P(
                 std::make_tuple(10,5,2),
                 std::make_tuple(10,1,10),               
                 std::make_tuple(200,10,21)));
-                }
+                
