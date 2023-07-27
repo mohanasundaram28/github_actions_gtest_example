@@ -6,17 +6,17 @@ class DivFunTestSuite : public testing::TestWithParam<std::tuple<int, int, int>>
 
     protected:
 
-    DivFunTestSuite(){}
+    divfunTestSuit(){}
 
-    ~DivFunTestSuite(){}
+    ~divfunTestSuit(){}
 
 };
 
 int divfun(int numer,int deno)
 {
-if(deno == 0 ||deno < 0 ){return(0);}
+if(deno == 0 || deno <= 0 ){return(0);}
 
-retuen(numer/ deno);
+return(numer/ deno);
 
 }
 
@@ -42,7 +42,7 @@ ASSERT_EQ(act_val,exp_val);
 
 INSTANTIATE_TEST_SUITE_P(
         divfunTestSuitExample,
-        divfunTestSuite,
+        divfunTestSuit,
         ::testing::Values(
                 std::make_tuple(10,5,2),
                 std::make_tuple(10,1,10),               
