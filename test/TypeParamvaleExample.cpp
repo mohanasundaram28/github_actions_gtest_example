@@ -24,63 +24,56 @@ public:
 
  void regulaterTemp()
  {
-this->tempsensorptr.getOutsideTemp();
+this->tempsensorptr->getOutsideTemp();
 
  }
 
 };
 
-template <typenmae T>
+template <typename T>
 class TempSensorFixture:public testing::Test{
 protected:
-  
-
- TemsensorFixture():objuntertest{}
+   TempSensorFixture():objuntertest{createObject<T>()}
  ITempsnr * objuntertest;
-}
+};
+/*fct func*/
+
+template <typename T>
+ITempsnr* createObject();
+template <>
+ITempsnr* createObject<ModelATempsensor>() { return new ModelATempsensor(); }
+template <>
+ITempsnr* createObject<ModelBTempsensor>() { return new ModelBTempsensor(); }
 
 
 template <typename T>
-I* ITempsnr();
-template <>
-I* createObject<ModelATempsensor>() { return new ModelATempsensor(); }
-template <>
-I* createObject<ModelBTempsensor>() { return new ModelBTempsensor(); }
 
+class TempSensorFixture : public testing::Test
 
-
-class ModeATemperatueFixture:public testing::test
 {
-protected:
- ModelATempsensor objuterTest;
 
-}
-TEST_F(ModeATemperatueFixture,getTemptest)
-{
-ASSERT_EQ(objuterTest.getOutsideTemp(),23);
+    protected:
 
-}
+    // Arrange
 
+    ITempSensor *objUnderTest;
 
+    TempSensorFixture() : objUnderTest { createObject<T>() } {}
 
-class ModelBTempsensor:public testing::test
-{
-protected:
- ModelBTempsensor objuterbTest;
+};
 
-}
+typedef Types<ModelATempsensor, ModelBTempsensor> Implementations;
 
-TEST_F(ModelBTempsensor,getTemptest)
-{
-ASSERT_EQ(objuterbTest.getOutsideTemp(),23);
-
-}
-
-typedef Types<ModelATempsensor,ModelBTempsensor> Implementations;
 
 TYPED_TEST_SUITE(TempSensorFixture, Implementations);
 
-TYPED_TEST(TempSensorFixture,getTemptest)
+
+
+
+TYPED_TEST(TempSensorFixture, GetTempTest)
+
 {
-    ASSERT_EQ(objuterbTest.getOutsideTemp(),23);
+
+    ASSERT_EQ(this->objUnderTest->getOutsideTemp(), 23);
+
 }
