@@ -30,12 +30,7 @@ this->tempsensorptr->getOutsideTemp();
 
 };
 
-template <typename T>
-class TempSensorFixture:public testing::Test{
-protected:
-   TempSensorFixture():objuntertest{createObject<T>()}{}
- ITempsnr * objuntertest;
-};
+
 /*fct func*/
 
 template <typename T>
@@ -44,22 +39,11 @@ template <>
 ITempsnr* createObject<ModelATempsensor>() { return new ModelATempsensor(); }
 template <>
 ITempsnr* createObject<ModelBTempsensor>() { return new ModelBTempsensor(); }
-
-
 template <typename T>
-
-class TempSensorFixture : public testing::Test
-
-{
-
-    protected:
-
-    // Arrange
-
-    ITempSensor *objUnderTest;
-
-    TempSensorFixture() : objUnderTest { createObject<T>() } {}
-
+class TempSensorFixture:public testing::Test{
+protected:
+   TempSensorFixture():objuntertest{createObject<T>()}{}
+ ITempsnr * objuntertest;
 };
 
 typedef Types<ModelATempsensor, ModelBTempsensor> Implementations;
