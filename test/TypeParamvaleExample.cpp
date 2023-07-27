@@ -33,7 +33,7 @@ this->tempsensorptr->getOutsideTemp();
 template <typename T>
 class TempSensorFixture:public testing::Test{
 protected:
-   TempSensorFixture():objuntertest{createObject<T>()}
+   TempSensorFixture():objuntertest{createObject<T>()}{}
  ITempsnr * objuntertest;
 };
 /*fct func*/
